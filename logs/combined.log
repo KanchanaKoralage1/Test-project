@@ -50,3 +50,8 @@
 {"level":"info","message":"user koralage3@gmail.com created successfully","service":"test-project-api","timestamp":"2025-11-09T09:51:15.876Z"}
 {"level":"info","message":"User registered successfully: koralage3@gmail.com","service":"test-project-api","timestamp":"2025-11-09T09:51:15.878Z"}
 {"level":"info","message":"::1 - - [09/Nov/2025:09:51:15 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 108 \"-\" \"PostmanRuntime/7.50.0\"","service":"test-project-api","timestamp":"2025-11-09T09:51:15.879Z"}
+{"level":"info","message":"User koralage3@gmail.com authenticated successfully","service":"test-project-api","timestamp":"2025-11-09T12:45:54.157Z"}
+{"level":"info","message":"User signed in successfully: koralage3@gmail.com","service":"test-project-api","timestamp":"2025-11-09T12:45:54.167Z"}
+{"level":"info","message":"::1 - - [09/Nov/2025:12:45:54 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 120 \"-\" \"PostmanRuntime/7.50.0\"","service":"test-project-api","timestamp":"2025-11-09T12:45:54.172Z"}
+{"level":"info","message":"User signed out successfully","service":"test-project-api","timestamp":"2025-11-09T12:46:22.462Z"}
+{"level":"info","message":"::1 - - [09/Nov/2025:12:46:22 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.50.0\"","service":"test-project-api","timestamp":"2025-11-09T12:46:22.464Z"}
