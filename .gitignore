@@ -9,3 +9,9 @@ logs
 .neon_local/
 .neon_local/
 .neon_local/
+Dockerfile
+
+# Ignore local env files and Dockerfile
+Dockerfile
+.env
+.env.*
