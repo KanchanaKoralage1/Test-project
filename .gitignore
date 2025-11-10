@@ -1,2 +1,11 @@
 node_modules
 .env.*
+.neon_local/
+logs
+.DS_Store
+.vscode
+.neon_local/
+.neon_local/
+.neon_local/
+.neon_local/
+.neon_local/

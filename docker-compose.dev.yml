@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  neon-local:
+    image: neondatabase/neon_local:latest
+    container_name: test-project-neon-local
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env.development
+    environment:
+      - NEON_DATABASE=${DATABASE_NAME:-neondb}
+      - NEON_USER=neon
+      - NEON_PASSWORD=neon
+    volumes:
+      - ./.neon_local/:/tmp/.neon_local
+      - ./.git/HEAD:/tmp/.git/HEAD:ro,consistent
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "localhost", "-p", "5432", "-U", "neon"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+    networks:
+      - test-project-dev
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: test-project-app-dev
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - .env.development
+    environment:
+      - DATABASE_URL=postgresql://neon:neon@neon-local:5432/${DATABASE_NAME:-neondb}?sslmode=disable
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - ./logs:/app/logs
+    depends_on:
+      neon-local:
+        condition: service_healthy
+    networks:
+      - test-project-dev
+    restart: unless-stopped
+
+networks:
+  test-project-dev:
+    driver: bridge
