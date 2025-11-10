@@ -1,17 +1,22 @@
 node_modules
-.env.*
-.neon_local/
-logs
-.DS_Store
-.vscode
-.neon_local/
-.neon_local/
-.neon_local/
-.neon_local/
-.neon_local/
-Dockerfile
 
-# Ignore local env files and Dockerfile
-Dockerfile
+# Environment files (keep local copies, don't commit)
 .env
 .env.*
+
+# Docker / build
+Dockerfile
+dist/
+coverage/
+
+# Neon local runtime
+.neon_local/
+
+# Logs and editor files
+logs/
+.vscode/
+.DS_Store
+
+# Misc
+npm-debug.log
+.dockerignore
