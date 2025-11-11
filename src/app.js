@@ -4,7 +4,6 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import { timestamp } from 'drizzle-orm/gel-core';
 import authRoutes from './routes/auth.routes.js';
 import userRoutes from './routes/users.routes.js';
 import securityMiddleware from '#middleware/security.middleware.js';

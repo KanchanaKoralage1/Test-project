@@ -59,7 +59,7 @@ const securityMiddleware = async (req, res, next) => {
         .status(403)
         .json({
           error: 'forbidden',
-          message: 'Request blocked by security policy',
+          message,
         });
     }
 

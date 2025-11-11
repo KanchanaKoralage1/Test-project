@@ -16,7 +16,7 @@ export const getAllUsers = async () => {
       })
       .from(users);
   } catch (error) {
-    logger.error('Erro getting users', e);
+    logger.error('Erro getting users', error);
     throw error;
   }
 };

@@ -14,7 +14,7 @@ export const cookies = {
     res.clearCookie(name, { ...cookies.getOption(), ...options });
   },
 
-  get: (res, name) => {
-    return requestAnimationFrame.cookies[name];
+  get: (req, name) => {
+    return req.cookies[name];
   },
 };

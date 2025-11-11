@@ -55,7 +55,7 @@ console.log('');
 console.log('📜 Applying latest schema with Drizzle...');
 try {
   execSync('npm run db:migrate', { stdio: 'inherit' });
-} catch (error) {
+} catch  {
   console.error('❌ Migration failed. Check your Drizzle setup.');
   process.exit(1);
 }

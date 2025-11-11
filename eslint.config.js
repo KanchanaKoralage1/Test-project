@@ -32,8 +32,27 @@ export default [
       'prefer-arrow-callback': 'error',
     },
   },
+
   {
-    files: ['tests/**/*.js'],
+    files: ['**/*.cjs'],
+    languageOptions: {
+      sourceType: 'commonjs',
+      globals: {
+        require: 'readonly',
+        module: 'readonly',
+        __dirname: 'readonly',
+        console: 'readonly',
+        process: 'readonly',
+      },
+    },
+    rules: {
+      'no-undef': 'off', // disable undefined errors for require/module
+    },
+  },
+
+
+  {
+    files: ['test/**/*.js'],
     languageOptions: {
       globals: {
         describe: 'readonly',
