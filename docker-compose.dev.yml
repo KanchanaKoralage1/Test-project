@@ -5,7 +5,7 @@ services:
     image: neondatabase/neon_local:latest
     container_name: test-project-neon-local
     ports:
-      - "5432:5432"
+      - '5432:5432'
     env_file:
       - .env.development
     environment:
@@ -16,7 +16,7 @@ services:
       - ./.neon_local/:/tmp/.neon_local
       - ./.git/HEAD:/tmp/.git/HEAD:ro,consistent
     healthcheck:
-      test: ["CMD", "pg_isready", "-h", "localhost", "-p", "5432", "-U", "neon"]
+      test: ['CMD', 'pg_isready', '-h', 'localhost', '-p', '5432', '-U', 'neon']
       interval: 5s
       timeout: 3s
       retries: 5
@@ -25,13 +25,13 @@ services:
       - test-project-dev
 
   app:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
       target: development
     container_name: test-project-app-dev
     ports:
-      - "${PORT:-3000}:3000"
+      - '${PORT:-3000}:3000'
     env_file:
       - .env.development
     environment:

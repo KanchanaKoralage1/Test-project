@@ -1,31 +1,25 @@
-import { db } from "#config/database.js"
-import logger from "#config/logger.js"
-import { users } from "#models/user.model.js"
-import { eq } from "drizzle-orm";
+import { db } from '#config/database.js';
+import logger from '#config/logger.js';
+import { users } from '#models/user.model.js';
+import { eq } from 'drizzle-orm';
 
-export const getAllUsers=async () => {
-
-    try {
-
-        return await db.select({
-            id:users.id,
-            email:users.email,
-            name:users.name,
-            role:users.role,
-            created_at:users.created_at,
-            updated_at:users.updated_at
-        }).from(users)
-
-        
-
-    } catch (error) {
-
-        logger.error('Erro getting users',e);
-        throw error;
-
-    }
-
-}
+export const getAllUsers = async () => {
+  try {
+    return await db
+      .select({
+        id: users.id,
+        email: users.email,
+        name: users.name,
+        role: users.role,
+        created_at: users.created_at,
+        updated_at: users.updated_at,
+      })
+      .from(users);
+  } catch (error) {
+    logger.error('Erro getting users', e);
+    throw error;
+  }
+};
 
 export const getUserById = async id => {
   try {
@@ -52,7 +46,6 @@ export const getUserById = async id => {
     throw e;
   }
 };
-
 
 export const updateUser = async (id, updates) => {
   try {

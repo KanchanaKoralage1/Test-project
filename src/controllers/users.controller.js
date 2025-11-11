@@ -1,27 +1,30 @@
-import logger from "#config/logger.js"
-import { getAllUsers,getUserById,updateUser,deleteUser } from "#services/users.services.js"
-import {userIdSchema,updateUserSchema} from '#validations/users.validation.js'
+import logger from '#config/logger.js';
+import {
+  getAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser,
+} from '#services/users.services.js';
+import {
+  userIdSchema,
+  updateUserSchema,
+} from '#validations/users.validation.js';
 
-export const fetchAllUsers =async (req,res,next)=>{
+export const fetchAllUsers = async (req, res, next) => {
+  try {
+    logger.info('Getting users ...');
+    const allUsers = await getAllUsers();
 
-    try {
-        
-        logger.info("Getting users ...")
-        const allUsers=await getAllUsers();
-
-        res.json({
-            message:'Successfully retrived all users',
-            users:allUsers,
-            count:allUsers.length
-        })
-
-    } catch (e) {
-
-        logger.error(e);
-        next(e)
-        
-    }
-}
+    res.json({
+      message: 'Successfully retrived all users',
+      users: allUsers,
+      count: allUsers.length,
+    });
+  } catch (e) {
+    logger.error(e);
+    next(e);
+  }
+};
 
 export const fetchUserById = async (req, res, next) => {
   try {
@@ -55,8 +58,6 @@ export const fetchUserById = async (req, res, next) => {
     next(e);
   }
 };
-
-
 
 export const updateUserById = async (req, res, next) => {
   try {
@@ -135,7 +136,6 @@ export const updateUserById = async (req, res, next) => {
     next(e);
   }
 };
-
 
 export const deleteUserById = async (req, res, next) => {
   try {

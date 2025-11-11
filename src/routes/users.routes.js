@@ -1,8 +1,13 @@
-import { fetchAllUsers, fetchUserById, updateUserById, deleteUserById} from '#controllers/users.controller.js';
+import {
+  fetchAllUsers,
+  fetchUserById,
+  updateUserById,
+  deleteUserById,
+} from '#controllers/users.controller.js';
 import { authenticateToken, requireRole } from '#middleware/auth.middleware.js';
 import express from 'express';
 
-const router=express.Router();
+const router = express.Router();
 
 // GET /users - Get all users (admin only)
 router.get('/', authenticateToken, requireRole(['admin']), fetchAllUsers);
