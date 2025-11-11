@@ -5,7 +5,6 @@ node_modules
 .env.*
 
 # Docker / build
-Dockerfile
 dist/
 coverage/
 
