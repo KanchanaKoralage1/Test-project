@@ -39,7 +39,7 @@ try {
   execSync('docker compose -f docker-compose.prod.yml up --build -d', {
     stdio: 'inherit',
   });
-} catch  {
+} catch {
   console.error('❌ Failed to start production Docker Compose environment.');
   process.exit(1);
 }
@@ -60,7 +60,7 @@ setTimeout(() => {
     console.log('   View logs: docker logs -f acquisition-app-prod');
     console.log('   Stop app: docker compose -f docker-compose.prod.yml down');
     console.log('');
-  } catch  {
+  } catch {
     console.error(
       '❌ Failed to apply migrations. Check your database connection.'
     );
